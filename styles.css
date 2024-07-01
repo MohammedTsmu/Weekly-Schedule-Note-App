@@ -39,7 +39,8 @@ h2 {
   color: #343a40;
 }
 
-input {
+input,
+select {
   padding: 10px;
   margin-bottom: 10px;
   width: calc(100% - 22px);
@@ -89,6 +90,21 @@ button i {
   word-break: break-word;
 }
 
+.task-item.must-do {
+  background-color: #ffcccb;
+  border-left: 5px solid #ff0000;
+}
+
+.task-item.appointment {
+  background-color: #ccffcc;
+  border-left: 5px solid #00ff00;
+}
+
+.task-item.low-priority {
+  background-color: #ccccff;
+  border-left: 5px solid #0000ff;
+}
+
 .goal-item:hover,
 .task-item:hover,
 .note-item:hover {
@@ -114,6 +130,7 @@ button i {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  grid-column: span 4;
 }
 
 .day {
@@ -127,14 +144,43 @@ button i {
   margin-top: 0;
 }
 
-.day input {
+.day input,
+.day select {
   margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.rating input {
+  width: 60px;
+  padding: 5px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
 .notes {
   grid-column: span 3;
+}
+
+.weekly-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.weekly-rating input {
+  width: 60px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
 @media (max-width: 768px) {
@@ -148,5 +194,9 @@ button i {
 
   .notes {
     grid-column: span 1;
+  }
+
+  .calendar-view {
+    grid-column: span 4;
   }
 }
