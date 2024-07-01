@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Schedule Note App</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>Weekly Schedule Note App</h1>
+    </header>
+    <main>
+        <section class="goals">
+            <h2>Weekly Goals</h2>
+            <input type="text" id="goal-input" placeholder="Enter goal">
+            <button onclick="addGoal()"><i class="fas fa-plus"></i></button>
+            <div class="goal-list">
+                <!-- Dynamic content -->
+            </div>
+        </section>
+        <section class="tasks">
+            <h2>Tasks</h2>
+            <input type="text" id="task-input" placeholder="Enter task">
+            <button onclick="addTask()"><i class="fas fa-plus"></i></button>
+            <div class="task-list">
+                <!-- Dynamic content -->
+            </div>
+        </section>
+        <section class="calendar">
+            <h2>Calendar</h2>
+            <div class="calendar-view">
+                <div class="day" id="monday">
+                    <h3>Monday</h3>
+                    <div class="task-list" data-day="monday">
+                        <!-- Dynamic content -->
+                    </div>
+                    <input type="text" placeholder="Add task">
+                    <button onclick="addTaskToDay('monday')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="day" id="tuesday">
+                    <h3>Tuesday</h3>
+                    <div class="task-list" data-day="tuesday">
+                        <!-- Dynamic content -->
+                    </div>
+                    <input type="text" placeholder="Add task">
+                    <button onclick="addTaskToDay('tuesday')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="day" id="wednesday">
+                    <h3>Wednesday</h3>
+                    <div class="task-list" data-day="wednesday">
+                        <!-- Dynamic content -->
+                    </div>
+                    <input type="text" placeholder="Add task">
+                    <button onclick="addTaskToDay('wednesday')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="day" id="thursday">
+                    <h3>Thursday</h3>
+                    <div class="task-list" data-day="thursday">
+                        <!-- Dynamic content -->
+                    </div>
+                    <input type="text" placeholder="Add task">
+                    <button onclick="addTaskToDay('thursday')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="day" id="friday">
+                    <h3>Friday</h3>
+                    <div class="task-list" data-day="friday">
+                        <!-- Dynamic content -->
+                    </div>
+                    <input type="text" placeholder="Add task">
+                    <button onclick="addTaskToDay('friday')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="day" id="saturday">
+                    <h3>Saturday</h3>
+                    <div class="task-list" data-day="saturday">
+                        <!-- Dynamic content -->
+                    </div>
+                    <input type="text" placeholder="Add task">
+                    <button onclick="addTaskToDay('saturday')"><i class="fas fa-plus"></i></button>
+                </div>
+                <div class="day" id="sunday">
+                    <h3>Sunday</h3>
+                    <div class="task-list" data-day="sunday">
+                        <!-- Dynamic content -->
+                    </div>
+                    <input type="text" placeholder="Add task">
+                    <button onclick="addTaskToDay('sunday')"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </section>
+        <section class="notes">
+            <h2>Notes</h2>
+            <input type="text" id="note-input" placeholder="Enter note">
+            <button onclick="addNote()"><i class="fas fa-plus"></i></button>
+            <div class="notes-list">
+                <!-- Dynamic content -->
+            </div>
+        </section>
+    </main>
+    <script src="scripts.js"></script>
+</body>
+
+</html>

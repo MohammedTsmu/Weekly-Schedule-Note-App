@@ -1,0 +1,146 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  background-color: #343a40;
+  color: white;
+  padding: 15px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1.5fr;
+  grid-template-columns: 1fr 1fr 1fr;   
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+  padding: 20px;
+}
+
+section {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+h2 {
+  margin-top: 0;
+  color: #343a40;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  width: calc(100% - 22px);
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button i {
+  pointer-events: none;
+}
+
+.goal-list,
+.task-list,
+.notes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goal-item,
+.task-item,
+.note-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  word-break: break-word;
+}
+
+.goal-item:hover,
+.task-item:hover,
+.note-item:hover {
+  transform: scale(1.02);
+}
+
+.goal-item .buttons,
+.task-item .buttons,
+.note-item .buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.goal-item .buttons button,
+.task-item .buttons button,
+.note-item .buttons button {
+  padding: 5px;
+  font-size: 14px;
+}
+
+.calendar-view {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.day {
+  background-color: white;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.day h3 {
+  margin-top: 0;
+}
+
+.day input {
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  .calendar-view {
+    grid-template-columns: 1fr;
+  }
+}
