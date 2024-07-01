@@ -249,16 +249,56 @@ button i {
   }
 }
 
-/* Dark Mode */
+/* تعديل نمط شريط التمرير */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #343a40;
+  border-radius: 6px;
+  border: 3px solid #f8f9fa;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+/* إضافة زر التمرير إلى الأعلى */
+#scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  transition: background-color 0.3s ease;
+}
+
+#scroll-to-top:hover {
+  background-color: #0056b3;
+}
+
+/* الوضع الليلي مع ثلاثة ألوان متناسقة */
 body.dark-mode {
-  background-color: #121212;
+  background-color: #181818;
   color: #e0e0e0;
 }
 
 body.dark-mode header,
 body.dark-mode section,
 body.dark-mode .settings-content {
-  background-color: #1e1e1e;
+  background-color: #252525;
   color: #e0e0e0;
 }
 
@@ -269,9 +309,9 @@ body.dark-mode .day h3 {
 
 body.dark-mode input,
 body.dark-mode select {
-  background-color: #2e2e2e;
+  background-color: #333;
   color: #e0e0e0;
-  border: 1px solid #444;
+  border: 1px solid #555;
 }
 
 body.dark-mode button {
@@ -286,29 +326,27 @@ body.dark-mode button:hover {
 body.dark-mode .goal-item,
 body.dark-mode .task-item,
 body.dark-mode .note-item {
-  background-color: #2e2e2e;
-  border: 1px solid #444;
+  background-color: #333;
+  border: 1px solid #555;
 }
 
-/* Dark Mode for Day */
 body.dark-mode .day {
-  background-color: #1e1e1e;
+  background-color: #252525;
   color: #e0e0e0;
-  border: 1px solid #444;
+  border: 1px solid #555;
 }
 
 body.dark-mode .day input,
 body.dark-mode .day select {
-  background-color: #2e2e2e;
+  background-color: #333;
   color: #e0e0e0;
-  border: 1px solid #444;
+  border: 1px solid #555;
 }
 
 body.dark-mode .day h3 {
   color: #ffffff;
 }
 
-/* Settings Popup Styles */
 .settings-popup {
   display: none;
   position: fixed;
@@ -332,7 +370,7 @@ body.dark-mode .day h3 {
 }
 
 body.dark-mode .settings-content {
-  background-color: #1e1e1e;
+  background-color: #252525;
   color: #e0e0e0;
 }
 

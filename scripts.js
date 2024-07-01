@@ -5,7 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     loadNotes();
     loadRatings();
     displayWeekNumber();
+
+    // عرض أو إخفاء زر التمرير إلى الأعلى بناءً على موقع التمرير
+    window.addEventListener('scroll', () => {
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        if (document.documentElement.scrollTop > 200) {
+            scrollToTopBtn.style.display = 'block';
+        } else {
+            scrollToTopBtn.style.display = 'none';
+        }
+    });
 });
+
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
 
 function addGoal() {
     const goalInput = document.getElementById('goal-input');
