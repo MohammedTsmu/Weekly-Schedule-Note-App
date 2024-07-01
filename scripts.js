@@ -257,16 +257,119 @@ function loadRatings() {
 
 function saveSettings() {
     const weekStartsOn = document.getElementById('week-starts-on').value;
+    const theme = document.getElementById('theme').value;
+    const language = document.getElementById('language').value;
+    const remindersEnabled = document.getElementById('reminders').checked;
+    const repeatTasks = document.getElementById('repeat-tasks').value;
+    const emailNotificationsEnabled = document.getElementById('email-notifications').checked;
+    const email = document.getElementById('email').value;
+
     localStorage.setItem('week-starts-on', weekStartsOn);
+    localStorage.setItem('theme', theme);
+    localStorage.setItem('language', language);
+    localStorage.setItem('reminders-enabled', remindersEnabled);
+    localStorage.setItem('repeat-tasks', repeatTasks);
+    localStorage.setItem('email-notifications-enabled', emailNotificationsEnabled);
+    localStorage.setItem('email', email);
+
     alert('Settings saved!');
     toggleSettingsPopup();
     generateCalendar(weekStartsOn);
+    changeTheme(theme);
 }
 
 function loadSettings() {
     const weekStartsOn = localStorage.getItem('week-starts-on') || 'sunday';
+    const theme = localStorage.getItem('theme') || 'light';
+    const language = localStorage.getItem('language') || 'en';
+    const remindersEnabled = localStorage.getItem('reminders-enabled') === 'true';
+    const repeatTasks = localStorage.getItem('repeat-tasks') || 'none';
+    const emailNotificationsEnabled = localStorage.getItem('email-notifications-enabled') === 'true';
+    const email = localStorage.getItem('email') || '';
+
     document.getElementById('week-starts-on').value = weekStartsOn;
+    document.getElementById('theme').value = theme;
+    document.getElementById('language').value = language;
+    document.getElementById('reminders').checked = remindersEnabled;
+    document.getElementById('repeat-tasks').value = repeatTasks;
+    document.getElementById('email-notifications').checked = emailNotificationsEnabled;
+    document.getElementById('email').value = email;
+
     generateCalendar(weekStartsOn);
+    changeTheme(theme);
+}
+
+function changeTheme(theme) {
+    if (theme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.body.classList.remove('light-mode');
+    } else {
+        document.body.classList.add('light-mode');
+        document.body.classList.remove('dark-mode');
+    }
+}
+
+function exportData() {
+    const data = {
+        goals: localStorage.getItem('goals'),
+        tasks: localStorage.getItem('tasks'),
+        notes: localStorage.getItem('notes'),
+        weekStartsOn: localStorage.getItem('week-starts-on'),
+        theme: localStorage.getItem('theme'),
+        language: localStorage.getItem('language'),
+        remindersEnabled: localStorage.getItem('reminders-enabled'),
+        repeatTasks: localStorage.getItem('repeat-tasks'),
+        emailNotificationsEnabled: localStorage.getItem('email-notifications-enabled'),
+        email: localStorage.getItem('email'),
+        weeklyRating: localStorage.getItem('weekly-rating')
+    };
+
+    const blob = new Blob([JSON.stringify(data)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'weekly-schedule-data.json';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function importData() {
+    document.getElementById('import-file').click();
+}
+
+function handleFileImport(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const data = JSON.parse(e.target.result);
+        localStorage.setItem('goals', data.goals);
+        localStorage.setItem('tasks', data.tasks);
+        localStorage.setItem('notes', data.notes);
+        localStorage.setItem('week-starts-on', data.weekStartsOn);
+        localStorage.setItem('theme', data.theme);
+        localStorage.setItem('language', data.language);
+        localStorage.setItem('reminders-enabled', data.remindersEnabled);
+        localStorage.setItem('repeat-tasks', data.repeatTasks);
+        localStorage.setItem('email-notifications-enabled', data.emailNotificationsEnabled);
+        localStorage.setItem('email', data.email);
+        localStorage.setItem('weekly-rating', data.weeklyRating);
+
+        loadSettings();
+        loadGoals();
+        loadTasks();
+        loadNotes();
+        loadRatings();
+        displayWeekNumber();
+        alert('Data imported successfully!');
+    };
+    reader.readAsText(file);
+}
+
+function toggleSettingsPopup() {
+    const settingsPopup = document.getElementById('settings-popup');
+    settingsPopup.style.display = settingsPopup.style.display === 'flex' ? 'none' : 'flex';
 }
 
 function generateCalendar(weekStartsOn) {
@@ -308,9 +411,4 @@ function displayWeekNumber() {
     const days = Math.floor((currentDate - startDate) / (24 * 60 * 60 * 1000));
     const weekNumber = Math.ceil(days / 7);
     document.getElementById('week-number').innerText = `Current Week Number: ${weekNumber}`;
-}
-
-function toggleSettingsPopup() {
-    const settingsPopup = document.getElementById('settings-popup');
-    settingsPopup.style.display = settingsPopup.style.display === 'flex' ? 'none' : 'flex';
 }

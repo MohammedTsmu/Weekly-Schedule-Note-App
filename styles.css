@@ -6,6 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #343a40;
 }
 
 header {
@@ -63,6 +64,8 @@ select {
   width: calc(100% - 22px);
   border: 1px solid #ddd;
   border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #343a40;
 }
 
 button {
@@ -158,6 +161,7 @@ button i {
 
 .day h3 {
   margin-top: 0;
+  color: #343a40;
 }
 
 .day input,
@@ -165,6 +169,8 @@ button i {
   margin-top: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #343a40;
 }
 
 .rating {
@@ -179,6 +185,8 @@ button i {
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #343a40;
 }
 
 .info {
@@ -213,6 +221,8 @@ button i {
   padding: 5px;
   border: 1px solid #ddd;
   border-radius: 5px;
+  background-color: #f8f9fa;
+  color: #343a40;
 }
 
 @media (max-width: 768px) {
@@ -233,6 +243,65 @@ button i {
   .notes {
     grid-column: span 1;
   }
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode header,
+body.dark-mode section,
+body.dark-mode .settings-content {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode h2,
+body.dark-mode .day h3 {
+  color: #ffffff;
+}
+
+body.dark-mode input,
+body.dark-mode select {
+  background-color: #2e2e2e;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+body.dark-mode button {
+  background-color: #007bff;
+  color: white;
+}
+
+body.dark-mode button:hover {
+  background-color: #0056b3;
+}
+
+body.dark-mode .goal-item,
+body.dark-mode .task-item,
+body.dark-mode .note-item {
+  background-color: #2e2e2e;
+  border: 1px solid #444;
+}
+
+/* Dark Mode for Day */
+body.dark-mode .day {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+body.dark-mode .day input,
+body.dark-mode .day select {
+  background-color: #2e2e2e;
+  color: #e0e0e0;
+  border: 1px solid #444;
+}
+
+body.dark-mode .day h3 {
+  color: #ffffff;
 }
 
 /* Settings Popup Styles */
@@ -256,6 +325,11 @@ button i {
   position: relative;
   max-width: 400px;
   width: 90%;
+}
+
+body.dark-mode .settings-content {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
 }
 
 .close-btn {
