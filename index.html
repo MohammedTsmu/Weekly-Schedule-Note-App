@@ -12,19 +12,9 @@
 <body>
     <header>
         <h1>Weekly Schedule Note App</h1>
+        <button class="settings-btn" onclick="toggleSettingsPopup()"><i class="fas fa-cog"></i></button>
     </header>
     <main>
-        <section class="settings">
-            <h2>Settings</h2>
-            <div class="settings-content">
-                <label for="week-starts-on">Week starts on:</label>
-                <select id="week-starts-on">
-                    <option value="sunday">Sunday</option>
-                    <option value="monday">Monday</option>
-                </select>
-                <button onclick="saveSettings()">Save Settings</button>
-            </div>
-        </section>
         <section class="info">
             <h2>Information</h2>
             <div id="week-number"></div>
@@ -72,6 +62,18 @@
     <footer>
         <p>© Mohammed Q. Sattar</p>
     </footer>
+    <div id="settings-popup" class="settings-popup">
+        <div class="settings-content">
+            <span class="close-btn" onclick="toggleSettingsPopup()">&times;</span>
+            <h2>Settings</h2>
+            <label for="week-starts-on">Week starts on:</label>
+            <select id="week-starts-on">
+                <option value="sunday">Sunday</option>
+                <option value="monday">Monday</option>
+            </select>
+            <button onclick="saveSettings()">Save Settings</button>
+        </div>
+    </div>
     <script src="scripts.js"></script>
 </body>
 

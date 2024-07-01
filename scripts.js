@@ -4,10 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
     loadTasks();
     loadNotes();
     loadRatings();
-    ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'].forEach(day => {
-        loadTasksForDay(day);
-        loadDayRating(day);
-    });
     displayWeekNumber();
 });
 
@@ -263,6 +259,8 @@ function saveSettings() {
     const weekStartsOn = document.getElementById('week-starts-on').value;
     localStorage.setItem('week-starts-on', weekStartsOn);
     alert('Settings saved!');
+    toggleSettingsPopup();
+    generateCalendar(weekStartsOn);
 }
 
 function loadSettings() {
@@ -310,4 +308,9 @@ function displayWeekNumber() {
     const days = Math.floor((currentDate - startDate) / (24 * 60 * 60 * 1000));
     const weekNumber = Math.ceil(days / 7);
     document.getElementById('week-number').innerText = `Current Week Number: ${weekNumber}`;
+}
+
+function toggleSettingsPopup() {
+    const settingsPopup = document.getElementById('settings-popup');
+    settingsPopup.style.display = settingsPopup.style.display === 'flex' ? 'none' : 'flex';
 }
