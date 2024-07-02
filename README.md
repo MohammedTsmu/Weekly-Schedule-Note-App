@@ -18,5 +18,6 @@ A modern **Weekly Schedule Note App** with beautiful **UI/UX**, **animations**, 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/weekly-schedule-note-app.git
+   git clone https://github.com/MohammedTsmu/Weekly-Schedule-Note-App.git
    cd weekly-schedule-note-app
+   
