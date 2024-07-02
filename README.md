@@ -1,6 +1,6 @@
 # Weekly Schedule Note App
 
-A modern Weekly Schedule Note App with beautiful UI/UX, animations, and dark mode. This application allows users to add and manage tasks, goals, and notes for each day of the week.
+A modern **Weekly Schedule Note App** with beautiful **UI/UX**, **animations**, and **dark mode**. This application allows users to add and manage tasks, goals, and notes for each day of the week.
 
 ## Features
 
